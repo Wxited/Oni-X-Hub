@@ -1,0 +1,54 @@
+local kavoUi = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local window = kavoUi.CreateLib("Trade Scam","BloodTheme")
+
+---Tabs
+
+local Tab1 = window:NewTab("Trade Scam And Stuff")
+local Tab1Section = Tab1:NewSection("Trade Scam And Stuff")
+local Tab2 = window:NewTab("Hubs")
+local Tab2Section = Tab2:NewSection("Hubs With Multiple Features")
+local Tab3 = window:NewTab("Credits")
+local Tab3Section = Tab3:NewSection("Made By whosix and trixpin20")
+local Tab3Section = Tab3:NewSection("Enjoy!")
+
+---Buttons
+
+ Tab1Section:NewToggle("Trade Scam", "Enable Trade Scam", function(state)
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
+end)
+
+Tab2Section:NewButton("Pet Simulator X Gui","Gui",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
+end)
+
+Tab1Section:NewButton("Rejoin Server","Rejoins The Server",function()
+--Auto execute highly recommended (use it)
+gui = game.CoreGui.RobloxPromptGui.promptOverlay:WaitForChild("ErrorPrompt")
+
+gui.Size = UDim2.new(0, 400, 0, 230)
+
+leave = gui.MessageArea.ErrorFrame.ButtonArea.LeaveButton
+
+gui.MessageArea.MessageAreaPadding.PaddingTop = UDim.new(0,-20)
+gui.MessageArea.ErrorFrame.ErrorFrameLayout.Padding = UDim.new(0, 5)
+
+gui.MessageArea.ErrorFrame.ButtonArea.ButtonLayout.CellPadding = UDim2.new(0, 0, 0, 5)
+
+rejoin = leave:Clone()
+rejoin.Parent = leave.Parent
+rejoin.ButtonText.Text = "Rejoin"
+
+Players = game:GetService("Players")
+TeleportService = game:GetService("TeleportService")
+
+rejoin.MouseButton1Up:Connect(function()
+	if #Players:GetPlayers() <= 1 then
+		TeleportService:Teleport(game.PlaceId, Players.LocalPlayer)
+	else
+		TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, Players.LocalPlayer)
+	end
+end)
